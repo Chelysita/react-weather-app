@@ -1,9 +1,12 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <footer className="App-header">
+        <Weather />
         <p>Let's do this</p>
         <a
           className="App-link"
@@ -13,7 +16,10 @@ function App() {
         >
           open-source code
         </a>
-      </header>
+        <button type="button" class="btn">
+          Button
+        </button>
+      </footer>
     </div>
   );
 }

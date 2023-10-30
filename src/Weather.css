@@ -1,0 +1,56 @@
+.forecast {
+  font-size: 40px;
+  text-transform: capitalize;
+  text-decoration-line: none;
+}
+
+.weatherApp {
+  border: 1px solid #e663a5;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+.low,
+.high {
+  font-size: 10px;
+}
+
+.low_high {
+  text-align: center;
+}
+.unitStyle {
+  font-size: 16px;
+  vertical-align: text-top;
+  text-decoration: none;
+
+  color: black;
+}
+.unitStyle {
+  color: black;
+  transition: all 150ms ease-in-out;
+}
+
+.unitColor {
+  cursor: default;
+  text-decoration: none;
+  color: black;
+}
+
+.unitColor:hover {
+  color: black;
+  text-decoration: none;
+}
+.under {
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .hourContent {
+    padding: 0;
+  }
+}
