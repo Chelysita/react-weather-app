@@ -1,6 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Weather.css";
+import drop3 from "./drop3.png";
+import wind from "./wind.png";
 
 export default function Weather() {
   return (
@@ -36,7 +38,7 @@ export default function Weather() {
         <div className="container-fluid text-center">
           <div className="row container-fluid">
             <div className="col align-self-center container-fluid">
-              <img src="images/drop3.png" width="100%" />
+              <img src={drop3} width="80%" alt="drop-icon" />
               <div className="humidityIcon">
                 <span id="humidity"></span>%
               </div>
@@ -60,8 +62,9 @@ export default function Weather() {
             <div className="col align-self-center">
               <img
                 className="forecastIcon"
-                src="images/wind.png"
-                width="100%"
+                src={wind}
+                width="80%"
+                alt="wind-icon"
               />
               <div className="windSpeed">
                 <span id="wind"></span> mph
