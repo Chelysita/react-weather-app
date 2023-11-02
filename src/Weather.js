@@ -1,17 +1,28 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Weather.css";
+import FormattedDate from "./FormattedDate";
 import drop3 from "./drop3.png";
 import wind from "./wind.png";
 import axios from "axios";
-export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [temperature, setTemperature] = useState(null);
+
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+
   function handleResponse(response) {
-    setTemperature(Math.round(response.data.main.temp));
-    setReady(true);
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+    });
   }
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div>
         <div className="weatherApp container-fluid">
@@ -41,8 +52,10 @@ export default function Weather() {
               </div>
             </form>
             <br />
-            <h1>Boston</h1>
-            <h4>Last updated: Monday 13:35</h4>
+            <h1>{weatherData.city}</h1>
+            <h4>
+              <FormattedDate date={weatherData.date} />
+            </h4>
           </div>
 
           <div className="container-fluid text-center">
@@ -50,18 +63,28 @@ export default function Weather() {
               <div className="col align-self-center container-fluid">
                 <img src={drop3} width="80%" alt="drop-icon" />
                 <div className="humidityIcon">
-                  <span id="humidity"></span>%
+                  <span id="humidity">{weatherData.humidity}</span>%
                 </div>
               </div>
               <div className="col container-fluid">
                 <div
                   className="forecast p-2 container-fluid"
                   id="weatherDescription"
-                ></div>
-                <img className="forecastIcon" width="50%" id="icon" />
+                >
+                  {weatherData.description}
+                </div>
+                <img
+                  src={weatherData.icon}
+                  className="forecastIcon"
+                  width="50%"
+                  id="icon"
+                  alt="Description Icon"
+                />
 
                 <div className="forecast p-2 container-fluid">
-                  <span id="temperature">{temperature} °F</span>
+                  <span id="temperature">
+                    {Math.round(weatherData.temperature)} °C
+                  </span>
                   <span className="unitStyle"></span>
                 </div>
               </div>
@@ -73,7 +96,7 @@ export default function Weather() {
                   alt="wind-icon"
                 />
                 <div className="windSpeed">
-                  <span id="wind"></span> mph
+                  <span id="wind">{weatherData.wind}</span> mph
                 </div>
               </div>
             </div>
@@ -101,7 +124,9 @@ export default function Weather() {
       </div>
     );
   } else {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=Boston&appid=cdc6f40eaa51d2e0ae19d310a7a3769c&units=metric`;
+    let apiKey = "cdc6f40eaa51d2e0ae19d310a7a3769c";
+
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(url).then(handleResponse);
   }
 }
