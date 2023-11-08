@@ -1,5 +1,5 @@
 .forecast {
-  font-size: 30px;
+  font-size: 25px;
   text-transform: capitalize;
   text-decoration-line: none;
 }
@@ -53,4 +53,7 @@ a:hover {
   .hourContent {
     padding: 0;
   }
+}
+.unit a {
+  text-decoration: none;
 }

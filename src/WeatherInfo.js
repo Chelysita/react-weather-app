@@ -3,6 +3,7 @@ import drop3 from "./drop3.png";
 import wind from "./wind.png";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -30,12 +31,7 @@ export default function WeatherInfo(props) {
             </div>
             <WeatherIcon code={props.data.icon} />
 
-            <div className="forecast p-2 container-fluid">
-              <span id="temperature">
-                {Math.round(props.data.temperature)} °C
-              </span>
-              <span className="unitStyle"></span>
-            </div>
+            <WeatherTemperature celsius={props.data.temperature} />
           </div>
           <div className="col align-self-center">
             <img
