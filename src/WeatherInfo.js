@@ -5,7 +5,6 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 import "bootstrap/dist/css/bootstrap.css";
-import WeatherForecast from "./WeatherForecast";
 
 export default function WeatherInfo(props) {
   return (
@@ -49,37 +48,7 @@ export default function WeatherInfo(props) {
             </div>
           </div>
         </div>
-        <WeatherForecast />
       </div>
-      <footer className="text-center mt-5 ">
-        <span>This project was coded by </span>
-        <a
-          className="font-weight-lighter text-decoration-none"
-          href="https://lighthearted-eclair-dbe26d.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Araceli Medina
-        </a>
-        <span> and is </span>
-        <a
-          className="font-weight-lighter text-decoration-none"
-          href="https://github.com/Chelysita/react-weather-app.git"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          open-source on GitHub
-        </a>
-        <span> and </span>
-        <a
-          className="font-weight-lighter text-decoration-none"
-          href="https://steady-griffin-9f60d9.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          hosted on Netlify
-        </a>
-      </footer>
     </div>
   );
 }

@@ -15,12 +15,7 @@ export default function WeatherTemperature(props) {
   if (unit === "celsius") {
     return (
       <div className="forecast p-2 container-fluid">
-        <span className="unit">
-          {Math.round(props.celsius)} °C |{" "}
-          <a href="/" onClick={showFahrenheit}>
-            F
-          </a>
-        </span>
+        <span className="unit">{Math.round(props.celsius)} °C </span>
       </div>
     );
   } else {
@@ -32,7 +27,6 @@ export default function WeatherTemperature(props) {
           <a href="/" onClick={showCelsius}>
             °C
           </a>
-          | F
         </span>
       </div>
     );

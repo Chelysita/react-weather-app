@@ -65,6 +65,35 @@ export default function Weather(props) {
           </form>
           <WeatherInfo data={weatherData} />
           <WeatherForecast coordinates={weatherData.coordinates} />
+          <footer className="text-center mt-5 ">
+            <span>This project was coded by </span>
+            <a
+              className="font-weight-lighter text-decoration-none"
+              href="https://lighthearted-eclair-dbe26d.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Araceli Medina
+            </a>
+            <span> and is </span>
+            <a
+              className="font-weight-lighter text-decoration-none"
+              href="https://github.com/Chelysita/react-weather-app.git"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              open-source on GitHub
+            </a>
+            <span> and </span>
+            <a
+              className="font-weight-lighter text-decoration-none"
+              href="https://steady-griffin-9f60d9.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              hosted on Netlify
+            </a>
+          </footer>
         </div>
       </div>
     );
