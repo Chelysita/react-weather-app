@@ -11,13 +11,11 @@ export default function WeatherForecast(props) {
   }, [props.coordinates]);
 
   function handleResponse(response) {
-    console.log(response.data);
     setForecast(response.data.daily);
     setLoaded(true);
   }
 
   if (loaded) {
-    console.log(forecast);
     return (
       <div className="weatherForecast">
         <div className="row">
@@ -36,9 +34,9 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    let longitude = props.coordinates.lon;
-    let latitude = props.coordinates.lat;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=cdc6f40eaa51d2e0ae19d310a7a3769c&units=metric`;
+    let longitude = props.coordinates.longitude;
+    let latitude = props.coordinates.latitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=e1054aod00e03d00aeectb39af13a2bb&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return null;
   }

@@ -2,11 +2,11 @@ import React from "react";
 import drop3 from "./drop3.png";
 import wind from "./wind.png";
 import FormattedDate from "./FormattedDate";
-import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 import "bootstrap/dist/css/bootstrap.css";
 
 export default function WeatherInfo(props) {
+  console.log(props.data);
   return (
     <div className="WeatherInfo">
       {" "}
@@ -31,7 +31,7 @@ export default function WeatherInfo(props) {
               {props.data.description}
             </div>
             <div className="WeatherIcon">
-              <WeatherIcon code={props.data.icon} size={52} />
+              <img src={props.data.icon} alt="weather-icon" size={52} />
             </div>
 
             <WeatherTemperature celsius={props.data.temperature} />
