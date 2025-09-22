@@ -48,12 +48,16 @@ a:hover {
 .under {
   text-decoration: none;
 }
-.weatherForecast {
-  margin: 0 auto;
-}
+
 @media (max-width: 800px) {
   .hourContent {
     padding: 0;
+  }
+  .dayForecast {
+    margin-bottom: 0;
+  }
+  .WeatherIcon {
+    margin: 0;
   }
 }
 .unit a {
@@ -68,13 +72,4 @@ a:hover {
   margin: 10px;
   max-width: 100%;
   height: auto;
-}
-
-.weatherForecast .row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin: 0 auto;
-}
-.weatherForecast .col {
-  flex: 1;
 }
